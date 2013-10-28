@@ -63,15 +63,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>..\SDL2-2.0.1\include;$(IncludePath)</IncludePath>
+    <CustomBuildAfterTargets>Link</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>..\SDL2-2.0.1\include;$(IncludePath)</IncludePath>
+    <CustomBuildAfterTargets>Link</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>..\SDL2-2.0.1\include;$(IncludePath)</IncludePath>
+    <CustomBuildAfterTargets>Link</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>..\SDL2-2.0.1\include;$(IncludePath)</IncludePath>
+    <CustomBuildAfterTargets>Link</CustomBuildAfterTargets>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -83,6 +87,11 @@
       <AdditionalLibraryDirectories>..\SDL2-2.0.1\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CustomBuildStep>
+      <Inputs>..\SDL2-2.0.1\lib\x86\SDL2.dll</Inputs>
+      <Command>copy ..\SDL2-2.0.1\lib\x86\SDL2.dll $(OutDir)\SDL2.dll</Command>
+      <Outputs>$(OutDir)\SDL2.dll;%(Outputs)</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -94,6 +103,11 @@
       <AdditionalLibraryDirectories>..\SDL2-2.0.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CustomBuildStep>
+      <Command>copy ..\SDL2-2.0.1\lib\x64\SDL2.dll $(OutDir)\SDL2.dll</Command>
+      <Outputs>$(OutDir)\SDL2.dll;%(Outputs)</Outputs>
+      <Inputs>..\SDL2-2.0.1\lib\x64\SDL2.dll</Inputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -109,6 +123,11 @@
       <AdditionalLibraryDirectories>..\SDL2-2.0.1\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CustomBuildStep>
+      <Command>copy ..\SDL2-2.0.1\lib\x86\SDL2.dll $(OutDir)\SDL2.dll</Command>
+      <Outputs>$(OutDir)\SDL2.dll;%(Outputs)</Outputs>
+      <Inputs>..\SDL2-2.0.1\lib\x86\SDL2.dll</Inputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -124,6 +143,11 @@
       <AdditionalLibraryDirectories>..\SDL2-2.0.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CustomBuildStep>
+      <Command>copy ..\SDL2-2.0.1\lib\x64\SDL2.dll $(OutDir)\SDL2.dll</Command>
+      <Outputs>$(OutDir)\SDL2.dll;%(Outputs)</Outputs>
+      <Inputs>..\SDL2-2.0.1\lib\x64\SDL2.dll</Inputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
