@@ -5,7 +5,11 @@ int main(int argc, char *argv[])
     const char *title     = "The Extreme Adventure Of Grandpa George";
     const unsigned width  = 640;
     const unsigned height = 480;
-
+    SDL_Rect rect;
+    rect.h = 100;
+    rect.w = 100;
+    rect.x = 250;
+    rect.y = 150;
 
     SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -25,7 +29,18 @@ int main(int argc, char *argv[])
                 alive = SDL_FALSE;
             }
         }
+
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+
         SDL_RenderClear(renderer);
+
+        SDL_SetRenderDrawColor(renderer, 100, 0, 0, 255);
+
+        SDL_RenderFillRect(renderer,&rect);
+
+        SDL_SetRenderDrawColor(renderer, 0, 238, 0, 255);
+
+        SDL_RenderDrawRect(renderer, &rect);
 
         SDL_RenderPresent(renderer);
     }
