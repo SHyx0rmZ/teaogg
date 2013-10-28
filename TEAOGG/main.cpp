@@ -24,9 +24,34 @@ int main(int argc, char *argv[])
     {
         while(SDL_PollEvent(&event))
         {
-            if(event.type == SDL_QUIT)
+            switch(event.type)
             {
-                alive = SDL_FALSE;
+            case SDL_QUIT:
+                {
+                    alive = SDL_FALSE;
+                    break;
+                }
+            case SDL_KEYDOWN:
+                {
+                    if(event.key.keysym.sym == SDLK_LEFT)
+                    {
+                        if (rect.x <= 0)
+                            rect.x = 0;
+                        else
+                        rect.x -= 10;
+                    }
+                    if(event.key.keysym.sym == SDLK_RIGHT)
+                    {
+                        if (rect.x >= 640 - rect.w)
+                            rect.x = 640 - rect.w;
+                        else
+                            rect.x += 10;
+                    }
+                }
+            default:
+                {
+                    break;
+                }
             }
         }
 
