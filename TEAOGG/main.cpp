@@ -35,17 +35,17 @@ int main(int argc, char *argv[])
                 {
                     if(event.key.keysym.sym == SDLK_LEFT)
                     {
-                        if (rect.x <= 0)
-                            rect.x = 0;
-                        else
                         rect.x -= 10;
+
+                        if (rect.x < 0)
+                            rect.x = 0;
                     }
                     if(event.key.keysym.sym == SDLK_RIGHT)
                     {
-                        if (rect.x >= 640 - rect.w)
+                        rect.x += 10;
+
+                        if (rect.x > 640 - rect.w)
                             rect.x = 640 - rect.w;
-                        else
-                            rect.x += 10;
                     }
                 }
             default:
